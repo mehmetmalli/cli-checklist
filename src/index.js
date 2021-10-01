@@ -6,8 +6,9 @@ TO DO:
 
 const inquirer = require('inquirer');
 const { join, isAbsolute } = require('path');
-const filename = join((isAbsolute(process.argv.at(-1)) ? '' : __dirname), process.argv.at(-1));
-const { name, items } = require(filename);
+const filename = process.argv.pop();
+const file = join((isAbsolute(filename) ? '' : __dirname), filename);
+const { name, items } = require(file);
 const choices = items.map(name => { return { name } });
 
 inquirer
