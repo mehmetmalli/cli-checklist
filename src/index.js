@@ -1,7 +1,14 @@
-const inquirer = require('inquirer');
-const { name, items } = require('./checklist.json');
+/* 
+TO DO:
+- Validate the file and inputs
+- Default values for name and message
+*/
 
-const choices = items.map(el => {return { name: el }});
+const inquirer = require('inquirer');
+const { join, isAbsolute } = require('path');
+const filename = join((isAbsolute(process.argv.at(-1)) ? '' : __dirname), process.argv.at(-1));
+const { name, items } = require(filename);
+const choices = items.map(name => { return { name } });
 
 inquirer
     .prompt([{
@@ -9,14 +16,8 @@ inquirer
         message: name,
         name,
         choices,
-        validate(answer) {
-            if (answer.length < items.length) {
-                return 'You must check all items.';
-            }
-
-            return true;
-        },
+        validate(answer) { return answer.length == items.length || 'All items must be checked.' }
     }, ])
-    .then((answers) => {
-        console.log(JSON.stringify(answers, null, 2));
+    .then(() => {
+        console.log("Checked all items, you are good to go !");
     });
