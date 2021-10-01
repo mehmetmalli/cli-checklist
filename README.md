@@ -1,2 +1,2 @@
-# checklist-cli
+# Checklist CLI
 A CLI checklist app.
