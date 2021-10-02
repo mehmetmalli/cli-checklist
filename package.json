@@ -1,5 +1,5 @@
 {
-  "name": "checklist-cli",
+  "name": "cli-checklist",
   "version": "1.0.0",
   "description": "A CLI checklist app.",
   "main": "src/index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mehmetmalli/checklist-cli.git"
+    "url": "git+https://github.com/mehmetmalli/cli-checklist.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mehmetmalli/checklist-cli/issues"
+    "url": "https://github.com/mehmetmalli/cli-checklist/issues"
   },
-  "homepage": "https://github.com/mehmetmalli/checklist-cli#readme",
+  "homepage": "https://github.com/mehmetmalli/cli-checklist#readme",
   "dependencies": {
     "inquirer": "^8.1.5"
   }
