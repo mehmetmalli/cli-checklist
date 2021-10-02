@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "bin": "src/index.js",
   "scripts": {
-    "start": "node src/index.js sample/checklist.json"
+    "test": "node src/index.js sample/checklist.json"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,10 @@
     "check",
     "list"
   ],
-  "author": "Mehmet MALLI",
+  "author": {
+    "name": "Mehmet MALLI",
+    "url": "https://mehmetmalli.com.tr"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mehmetmalli/cli-checklist/issues"
