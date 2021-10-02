@@ -3,7 +3,11 @@ const { writeFileSync } = require('fs');
 const { join, isAbsolute } = require('path');
 
 const errorMessage = () => {
-    console.error("Please provide a valid JSON file for input.");
+    console.error("Please provide a valid JSON file for input or use 'cli-checklist init' to generate a sample file.");
+}
+
+const exit = () => {
+    process.exit(0);
 }
 
 module.exports.isInit = (arg) => {
@@ -11,9 +15,15 @@ module.exports.isInit = (arg) => {
 }
 
 module.exports.createSampleFile = () => {
-    const sampleFile = require('../sample/checklist.json')
-    writeFileSync(join(process.cwd(), 'checklist.json'), JSON.stringify(sampleFile, null, 2))
-    console.log("The sample file (checklist.json) was created.");
+    try {
+        const sampleFile = require('../sample/checklist.json');
+        writeFileSync(join(process.cwd(), 'checklist.json'), JSON.stringify(sampleFile, null, 2));
+        console.log("The sample file (checklist.json) was created.");
+    } catch (err) {
+        console.error(err);
+    } finally {
+        exit();
+    }
 }
 
 module.exports.getFilePath = (filename) => {
@@ -29,6 +39,7 @@ module.exports.getChoices = (items) => {
         });
     } else {
         errorMessage();
+        exit();
     }
 }
 
@@ -49,5 +60,6 @@ module.exports.prompt = (message, name, choices) => {
             });
     } else {
         errorMessage();
+        exit();
     }
 }
