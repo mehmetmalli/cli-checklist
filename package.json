@@ -11,7 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/mehmetmalli/cli-checklist.git"
   },
-  "keywords": [],
+  "keywords": [
+    "checklist",
+    "cli",
+    "cli-checklist",
+    "checklist-cli",
+    "check",
+    "list"
+  ],
   "author": "Mehmet MALLI",
   "license": "MIT",
   "bugs": {
