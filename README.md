@@ -11,6 +11,8 @@ Initialize (create a sample input file) using `cli-checklist init`
 
 Run the checklist using `cli-checklist checklist.json` or `cli-checklist /path/to/your/file`
 
+This can be used with [Husky](https://github.com/typicode/husky) to perform checklists before committing or pushing to repos.
+
 ## Structure of the input file
 
 ```json
