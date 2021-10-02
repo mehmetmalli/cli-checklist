@@ -1,24 +1,16 @@
-/* 
-TO DO:
-- Validate the file and inputs
-- Default values for name and message
-*/
+const { isInit, createSampleFile, getFilePath, getChoices, prompt } = require('./utils');
+const lastArg = process.argv.pop();
 
-const inquirer = require('inquirer');
-const { join, isAbsolute } = require('path');
-const filename = process.argv.pop();
-const file = join((isAbsolute(filename) ? '' : __dirname), filename);
-const { name, items } = require(file);
-const choices = items.map(name => { return { name } });
+if (isInit(lastArg)) {
+    createSampleFile();
+    process.exit(0);
 
-inquirer
-    .prompt([{
-        type: 'checkbox',
-        message: name,
-        name,
-        choices,
-        validate(answer) { return answer.length == items.length || 'All items must be checked.' }
-    }, ])
-    .then(() => {
-        console.log("Checked all items, you are good to go !");
-    });
+} else {
+    const { name, items } = require(getFilePath(lastArg));
+    const choices = getChoices(items);
+    prompt(name, name, choices);
+}
+
+
+
+
